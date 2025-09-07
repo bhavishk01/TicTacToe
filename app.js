@@ -3,6 +3,7 @@ let turnX = true;
 let infos = document.querySelector(".info");
 let message = document.querySelector(".msg");
 let resetBtn = document.querySelector(".resetBtn");
+let count = 0;
 
 let winPatterns = [
     [0, 1, 2],
@@ -37,15 +38,22 @@ boxes.forEach((box) => {
     box.addEventListener("click", () => {
         if(turnX){
             box.innerText = "X";
+            count++;
             turnX = false;
         }
         else
         {
             box.innerText = "O";
+            count++;
             turnX = true;
         }
         box.disabled = true;
         checkWin();
+        if(count === 9 && message.innerText === ""){
+            message.innerText = "It's a Draw!";
+            infos.style.display = "flex";
+            infos.append(newGameBtn);
+        }
     });
 });
 
@@ -79,6 +87,7 @@ enablebox = () => {
 
 const newGame = () => {
     turnX = true;
+    count = 0;
     message.innerText = "";
     enablebox();
     newGameBtn.remove();
@@ -87,4 +96,3 @@ const newGame = () => {
 
 newGameBtn.addEventListener("click", newGame);
 resetBtn.addEventListener("click", newGame);
-
