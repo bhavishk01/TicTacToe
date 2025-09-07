@@ -1,5 +1,6 @@
 let boxes = document.querySelectorAll(".box");
 let turnX = true;
+let infos = document.querySelector(".info");
 let message = document.querySelector(".msg");
 
 let winPatterns = [
@@ -12,6 +13,9 @@ let winPatterns = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+let newGameBtn = document.createElement("button");
+newGameBtn.innerText = "New Game";
 
 boxes.forEach((box) => {
     box.addEventListener("mouseenter", () => {
@@ -51,6 +55,7 @@ winPatterns.forEach((pattern) => {
     {
         message.innerText = `${val1} is the winner!`;
         disablebox();
+        infos.append(newGameBtn);
     }
 });
 }
@@ -67,5 +72,12 @@ enablebox = () => {
         box.innerText = "";
     }); 
 }
+
+newGameBtn.addEventListener("click", () => {
+    turnX = true;
+    message.innerText = "";
+    enablebox();
+    newGameBtn.remove();
+});
 
 
