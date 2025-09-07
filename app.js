@@ -2,6 +2,7 @@ let boxes = document.querySelectorAll(".box");
 let turnX = true;
 let infos = document.querySelector(".info");
 let message = document.querySelector(".msg");
+let resetBtn = document.querySelector(".resetBtn");
 
 let winPatterns = [
     [0, 1, 2],
@@ -76,12 +77,14 @@ enablebox = () => {
     }); 
 }
 
-newGameBtn.addEventListener("click", () => {
+const newGame = () => {
     turnX = true;
     message.innerText = "";
     enablebox();
     newGameBtn.remove();
     infos.style.display = "none";
-});
+};
 
+newGameBtn.addEventListener("click", newGame);
+resetBtn.addEventListener("click", newGame);
 
