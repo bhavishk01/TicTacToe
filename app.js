@@ -13,9 +13,11 @@ let winPatterns = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+infos.style.display = "none";
 
 let newGameBtn = document.createElement("button");
 newGameBtn.innerText = "New Game";
+newGameBtn.classList.add("newGameBtn");
 
 boxes.forEach((box) => {
     box.addEventListener("mouseenter", () => {
@@ -55,6 +57,7 @@ winPatterns.forEach((pattern) => {
     {
         message.innerText = `${val1} is the winner!`;
         disablebox();
+        infos.style.display = "flex";
         infos.append(newGameBtn);
     }
 });
@@ -78,6 +81,7 @@ newGameBtn.addEventListener("click", () => {
     message.innerText = "";
     enablebox();
     newGameBtn.remove();
+    infos.style.display = "none";
 });
 
 
