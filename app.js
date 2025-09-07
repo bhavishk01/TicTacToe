@@ -12,6 +12,19 @@ let winPatterns = [
 ];
 
 boxes.forEach((box) => {
+    box.addEventListener("mouseenter", () => {
+        if(turnX){
+            box.style.boxShadow = "0px 0px 15px blue";
+        } else {
+            box.style.boxShadow = "0px 0px 15px red";
+        }   
+    });
+    box.addEventListener("mouseleave", () => {
+        box.style.boxShadow = "none";
+    });
+});
+
+boxes.forEach((box) => {
     box.addEventListener("click", () => {
         if(turnX){
             box.innerText = "X";
