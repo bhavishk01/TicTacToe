@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    padding: 2rem;
+}
+body{
+    text-align: center;
+    background-color: black;
+    color: #fff;
+}
+
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game{
+    height:60vmin;
+    width: 60vmin;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.box{
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 5%;
+    font-size: 50px;
+    border: 1px solid white;
+    background-color:black;
+    color: white ;
+}
