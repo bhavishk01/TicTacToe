@@ -1,5 +1,7 @@
 let boxes = document.querySelectorAll(".box");
 let turnX = true;
+let message = document.querySelector(".msg");
+
 let winPatterns = [
     [0, 1, 2],
     [3, 4, 5],
@@ -36,6 +38,34 @@ boxes.forEach((box) => {
             turnX = true;
         }
         box.disabled = true;
+        checkWin();
     });
 });
+
+const checkWin = () => {    
+winPatterns.forEach((pattern) => {
+    let val1 = boxes[pattern[0]].innerText;
+    let val2 = boxes[pattern[1]].innerText;
+    let val3 = boxes[pattern[2]].innerText;
+    if(val1 === val2 && val2 === val3 && val1 !== "")
+    {
+        message.innerText = `${val1} is the winner!`;
+        disablebox();
+    }
+});
+}
+
+disablebox = () => {
+    boxes.forEach((box) => {
+        box.disabled = true;
+    });     
+}
+
+enablebox = () => {
+    boxes.forEach((box) => {
+        box.disabled = false;
+        box.innerText = "";
+    }); 
+}
+
 
